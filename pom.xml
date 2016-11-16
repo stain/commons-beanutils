@@ -15,10 +15,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 -->
-<project
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <parent>
     <groupId>org.apache.commons</groupId>
     <artifactId>commons-parent</artifactId>
@@ -27,17 +24,33 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>commons-beanutils</groupId>
   <artifactId>commons-beanutils</artifactId>
-  <version>1.9.3-SNAPSHOT</version>
+  <version>1.9.4-SNAPSHOT</version>
   <name>Apache Commons BeanUtils</name>
 
   <inceptionYear>2000</inceptionYear>
   <description>Apache Commons BeanUtils provides an easy-to-use but flexible wrapper around reflection and introspection.</description>
+  <url>https://commons.apache.org/proper/commons-beanutils/</url>
 
-  <url>http://commons.apache.org/proper/commons-beanutils/</url>
+  <properties>
+      <maven.compiler.source>1.6</maven.compiler.source>
+      <maven.compiler.target>1.6</maven.compiler.target>
+      <commons.componentid>beanutils</commons.componentid>
+      <commons.release.version>1.9.3</commons.release.version>
+      <commons.jira.id>BEANUTILS</commons.jira.id>
+      <commons.jira.pid>12310460</commons.jira.pid>
+      <!-- limit memory size see BEANUTILS-291; allow command-line override -->
+      <!-- Originally 25M, increased to 50M to get round Continuum CI build failures -->
+      <surefire.argLine>-Xmx49M</surefire.argLine>
+      <commons.japicmp.version>0.9.1</commons.japicmp.version>
+      <commons.clirr.version>2.8</commons.clirr.version>
+      <commons.encoding>utf-8</commons.encoding>
+  </properties>
+
+
 
   <issueManagement>
     <system>jira</system>
-    <url>http://issues.apache.org/jira/browse/BEANUTILS</url>
+    <url>https://issues.apache.org/jira/browse/BEANUTILS</url>
   </issueManagement>
 
   <scm>
@@ -190,99 +203,107 @@
   <contributors>
     <contributor>
       <name>Paul Jack</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Stephen Colebourne</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Berin Loritsch</name>
-      <email></email>
-    </contributor>    
+      <email />
+    </contributor>
     <contributor>
       <name>Alex Crown</name>
-      <email></email>
-    </contributor>    
+      <email />
+    </contributor>
     <contributor>
       <name>Marcus Zander</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Paul Hamamnt</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Rune Johannesen</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Clebert Suconic</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Norm Deane</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Ralph Schaer</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Chris Audley</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
-      <name>Rey Fran&#231;ois</name>
-      <email></email>
+      <name>Rey François</name>
+      <email />
     </contributor>
     <contributor>
-      <name>Gregor Ra&#253;man</name>
-      <email></email>
+      <name>Gregor Raýman</name>
+      <email />
     </contributor>
     <contributor>
       <name>Jan Sorensen</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Eric Pabst</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Paulo Gaspar</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Michael Smith</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>George Franciscus</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Erik Meade</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Tomas Viberg</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Yauheny Mikulski</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Michael Szlapa</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
       <name>Juozas Baliuka</name>
-      <email></email>
+      <email />
     </contributor>
     <contributor>
-      <name>Tommy Tynj&#228;</name>
-      <email></email>
+      <name>Tommy Tynjä</name>
+      <email />
+    </contributor>
+    <contributor>
+      <name>Bernhard Seebass</name>
+      <email />
+    </contributor>
+    <contributor>
+      <name>Raviteja Lokineni</name>
+      <email />
     </contributor>
   </contributors>
 
@@ -294,13 +315,13 @@
     </dependency>
     <dependency>
       <groupId>commons-collections</groupId>
-      <artifactId>commons-collections</artifactId> 
-      <version>3.2.2</version> 
+      <artifactId>commons-collections</artifactId>
+      <version>3.2.2</version>
     </dependency>
     <dependency>
       <groupId>commons-collections</groupId>
-      <artifactId>commons-collections-testframework</artifactId> 
-      <version>3.2.1</version> 
+      <artifactId>commons-collections-testframework</artifactId>
+      <version>3.2.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -313,13 +334,18 @@
 
   <build>
       <plugins>
+
+
+
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
               <forkMode>pertest</forkMode>
-              <!-- limit memory size see BEANUTILS-291 -->
-              <argLine>${surefire.argLine}</argLine>
+	      <!-- limit memory size see BEANUTILS-291 
+                   ..also include ${argLine} from jacoco-maven-plugin
+	      -->
+	      <argLine>${surefire.argLine} ${argLine}</argLine>
               <includes>
                 <include>**/*TestCase.java</include>
               </includes>
@@ -334,7 +360,7 @@
               <redirectTestOutputToFile>true</redirectTestOutputToFile>
               <systemPropertyVariables>
                   <org.apache.commons.logging.LogFactory>org.apache.commons.logging.impl.LogFactoryImpl</org.apache.commons.logging.LogFactory>
-                  <org.apache.commons.logging.Log>org.apache.commons.logging.impl.SimpleLog</org.apache.commons.logging.Log>>
+                  <org.apache.commons.logging.Log>org.apache.commons.logging.impl.SimpleLog</org.apache.commons.logging.Log>
                   <org.apache.commons.logging.simplelog.defaultlog>WARN</org.apache.commons.logging.simplelog.defaultlog>
               </systemPropertyVariables>
 
@@ -368,18 +394,6 @@
         </plugins>
       </pluginManagement>
     </build>
-
-    <properties>
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.target>1.6</maven.compiler.target>
-        <commons.componentid>beanutils</commons.componentid>
-        <commons.release.version>1.9.3</commons.release.version>
-        <commons.jira.id>BEANUTILS</commons.jira.id>
-        <commons.jira.pid>12310460</commons.jira.pid>
-        <!-- limit memory size see BEANUTILS-291; allow command-line override -->
-        <!-- Originally 25M, increased to 50M to get round Continuum CI build failures -->
-        <surefire.argLine>-Xmx50M</surefire.argLine>
-    </properties> 
 
     <reporting>
         <plugins>
@@ -420,7 +434,57 @@
                     </reportSet>
                 </reportSets>
             </plugin>
+            <plugin>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.6</version>
+                <configuration>
+                    <targetJdk>${maven.compiler.target}</targetJdk>
+                    <linkXref>true</linkXref>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <id>pmd-report</id>
+                        <reports>
+                            <report>pmd</report>
+                        </reports>
+                    </reportSet>
+                    <reportSet>
+                        <id>pmd-aggregate</id>
+                        <inherited>false</inherited>
+                        <reports>
+                            <report>pmd</report>
+                        </reports>
+                        <configuration>
+                            <aggregate>true</aggregate>
+                        </configuration>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+<!-- TODO: Enable below using japicmp 0.9.1 or later
+	      <plugin>
+		<groupId>com.github.siom79.japicmp</groupId>
+		<artifactId>japicmp-maven-plugin</artifactId>
+		<version>${commons.japicmp.version}</version>
+     to support "mvn site" instead of "mvn package site"
+		<configuration>
+		   <parameter>
+			   <ignoreMissingNewVersion/>
+		   </parameter>
+		</configuration>
+	      </plugin>
+-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>${commons.findbugs.version}</version>
+                <configuration>
+                    <threshold>Normal</threshold>
+                    <effort>Default</effort>
+                    <!--<excludeFilterFile>src/conf/findbugs-exclude-filter.xml</excludeFilterFile> -->
+                    <fork>true</fork>
+                    <jvmArgs>-Duser.language=en</jvmArgs>
+                </configuration>
+            </plugin>
         </plugins>
     </reporting>
-
 </project>
